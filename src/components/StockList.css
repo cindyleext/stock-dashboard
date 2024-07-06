@@ -1,0 +1,15 @@
+.stock-list {
+    list-style: none;
+    display: flex;
+    justify-content: left;
+    padding: 0px;
+}
+
+.stock-details {
+    display: flex;
+    /* justify-content: center; */
+    background-color: white;
+    border-radius: 10px;
+    margin: 10px;
+    padding: 10px;
+}

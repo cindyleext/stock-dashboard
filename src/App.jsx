@@ -1,35 +1,26 @@
 import { useState } from 'react'
-// import reactLogo from './assets/react.svg'
-// import viteLogo from '/vite.svg'
 import StockList from './components/StockList';
 import StockInputForm from './components/StockInputForm';
-// import './App.css'
-
-function FinanceDashboard(){
-  const [inputValue, setInputValue] = useState('');
-  const [items, setItems] = useState([]);
-
-  const handleInputChange = (value) => {
-    setInputValue(value);
-    console.log("Add stock", value);
-    setItems([...items, value]);
-  };
-
-  return (<>
-  <h1>Finance Dashboard</h1>
-  <div>
-    <StockInputForm onInputChange={handleInputChange}/>
-    <StockList items={items}/>
-  </div>
-  </>);
-}
+import './App.css'
+import StockContext from './contexts/StockContext';
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [inputValue, setInputValue] = useState([]);
+  const [stockList, setStockList] = useState([["AMD", 30, 100], ["TSLA", 30, 100]]);
 
   return (
     <>
-      <FinanceDashboard/>
+    <StockContext.Provider 
+      value={{
+        inputValue,
+        setInputValue,
+        stockList,
+        setStockList
+      }}>
+      <h1>Finance Dashboard</h1>
+      <StockInputForm/>
+      <StockList/>
+      </StockContext.Provider>
     </>
   )
 }

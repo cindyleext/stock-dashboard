@@ -1,24 +1,23 @@
-import { useState, useEffect } from "react";
+import { useContext } from "react";
+import StockContext from "../contexts/StockContext";
+import './StockList.css'
 
-function StockList({items}){
-    console.log("Stock list", items);
-    return <ul>
-    <li>
-      <p>Stock</p> {/* Should I put this in separate div? */}
-      <p>AMD</p>{/* Should I use p or table or ul or li? */}
-      <p>Quantity</p>
-      <p>30</p>
-      <p>Profit</p>
-      <p>100</p>
+function StockDetails({symbol, quantity, value}){
+  return (<>
+    <li className="stock-details">
+      <p>Symbol: {symbol}</p>
+      <p>Quantity: {quantity}</p>
+      <p>Profit: {value}</p>
     </li>
-    <li>
-      <p>Stock</p> {/* Should I put this in separate div? */}
-      <p>TSLA</p>{/* Should I use p or table or ul or li? */}
-      <p>Quantity</p>
-      <p>10</p>
-      <p>Profit</p>
-      <p>100</p>
-    </li>
+  </>)
+}
+
+function StockList(){
+    const { stockList } = useContext(StockContext);
+
+    console.log("Stock list", stockList);
+    return <ul className="stock-list">
+      {stockList.map((value) => (<StockDetails symbol={value[0]} quantity={value[1]} profit={value[2]}/>))}
   </ul>
 }
 
