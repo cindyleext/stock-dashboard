@@ -22,9 +22,9 @@ function App() {
     }
 
     const symbol = inputStockDetails.symbol
-    let result = fakestock;
+    // let result = fakestock;
 
-    console.log("Update prices")
+    // console.log("Update prices")
 
     // Fetch new stock details and append to list
     fetchStockPrice(symbol).then((data) => {
