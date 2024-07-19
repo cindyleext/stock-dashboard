@@ -22,7 +22,6 @@ function App() {
     }
 
     const symbol = inputStockDetails.symbol
-    // let result = fakestock;
 
     // console.log("Update prices")
 
