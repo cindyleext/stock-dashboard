@@ -12,7 +12,7 @@ function App() {
   const [stockList, setStockList] = useState([]);// useState([["AMD", 30, 100], ["TSLA", 30, 100]]);
 
   const fetchStockPrice = useCallback((symbol) => {
-    return fetch(`https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=${symbol}&apikey=demo`)
+    return fetch(`https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=${symbol}&apikey=P1Y8OBG4EMX31L94`)
     .then((res) => res.json())
   }, []);
 
